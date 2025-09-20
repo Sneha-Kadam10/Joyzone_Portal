@@ -13,18 +13,10 @@ LOGIN_URL = "/users/login/"
 LOGIN_REDIRECT_URL = "/dashboard/"
 LOGOUT_REDIRECT_URL = "/"
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "unsafe-secret-key")
+SECRET_KEY = 'replace-this-with-a-secure-key-for-production'
+DEBUG = True
+ALLOWED_HOSTS = ["*"]
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DJANGO_DEBUG", "False") == "True"
-
-# Allow Render host + localhost
-ALLOWED_HOSTS = [
-    "localhost",
-    "127.0.0.1",
-    os.environ.get("RENDER_EXTERNAL_HOSTNAME"),  # Render auto sets this
-]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -33,7 +25,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Your apps
     'users',
     'quizzes',
     'dashboard',
@@ -51,6 +42,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "users.middleware.RestrictAdminAccessMiddleware",
 ]
+# Optional: better static file caching
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 ROOT_URLCONF = 'joyzone.urls'
 
@@ -92,16 +85,13 @@ TIME_ZONE = 'Asia/Kolkata'
 USE_I18N = True
 USE_TZ = True
 
-# ✅ Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# ✅ Whitenoise settings (serve static files in production)
-STORAGES = {
-    "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-    },
-}
+STATICFILES_DIRS = [
+    BASE_DIR / "static",   # your custom static files (CSS, JS, images)
+]
+
+STATIC_ROOT = BASE_DIR / "staticfiles"   # where collectstatic puts everything
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
