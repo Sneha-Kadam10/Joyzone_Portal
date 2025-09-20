@@ -1,0 +1,1 @@
+web: gunicorn joyzone.wsgi:application --log-file –
