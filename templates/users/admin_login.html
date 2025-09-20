@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="{% if login_type == 'admin' %}admin-login-container{% else %}kid-login-container{% endif %}">
+    <h2>{% if login_type == 'admin' %}Admin Login{% else %}Kid Login{% endif %}</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Login</button>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="result-container">
+    <h2>Quiz Completed 🎉</h2>
+    <p>You scored <b>{{ result.score }}</b> out of <b>10</b></p>
+
+    {% if result.score == 10 %}
+        <p class="result-success">Excellent! Perfect score! 🏆</p>
+    {% elif result.score >= 5 %}
+        <p class="result-good">Good job! Keep practicing 👍</p>
+    {% else %}
+        <p class="result-fail">Don’t worry, you’ll do better next time 💪</p>
+    {% endif %}
+
+    <div>
+        <a href="{% url 'dashboard' %}" class="result-btn">Go to Dashboard</a>
+    </div>
+</div>
+{% endblock %}

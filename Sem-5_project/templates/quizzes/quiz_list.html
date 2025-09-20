@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <h2>Available Quizzes 📝</h2>
+
+  {% if quizzes %}
+    <div class="quiz-container">
+      {% for quiz in quizzes %}
+        <div class="card quiz-card">
+          <div class="quiz-icon">📚</div>
+          <h3>{{ quiz.title }}</h3>
+          <p><strong>Age Group:</strong> {{ quiz.age_group }}</p>
+          <p><strong>Questions:</strong> {{ quiz.question_set.count }}</p>
+          <a href="{% url 'take_quiz' quiz.id %}" class="btn-start">Start Quiz ▶️</a>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>No quizzes available right now. 🎉</p>
+  {% endif %}
+{% endblock %}

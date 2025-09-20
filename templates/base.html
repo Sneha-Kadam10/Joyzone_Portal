@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JoyZone</title>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+  <header>
+    <h2>JoyZone Learning Portal</h2>
+    {% if request.resolver_match.url_name != 'take_quiz' %}
+    <nav>
+      <a href="{% url 'home' %}">Home</a>
+
+      {% if user.is_authenticated %}
+          {% if user.is_superuser %}
+              <!-- Admin logged in -->
+              <a href="{% url 'admin:index' %}">Admin Panel</a>   <!-- 🔹 Django admin site -->
+          {% else %}
+              <!-- Kid logged in -->
+              <a href="{% url 'quiz_list' %}">Quizzes</a>
+              <a href="{% url 'dashboard' %}">Dashboard</a>
+          {% endif %}
+
+          <!-- Logout button (POST form) -->
+          <form action="{% url 'logout' %}" method="post" class="logout-form" style="display:inline;">
+              {% csrf_token %}
+              <button type="submit" class="logout-link">Logout</button>
+          </form>
+
+      {% else %}
+          <!-- Not logged in -->
+          <a href="{% url 'login' %}">Login</a>
+          <a href="{% url 'register' %}">Register</a>
+          <a href="{% url 'admin-login' %}">Admin Login</a> 
+      {% endif %}
+    </nav>
+    {% endif %}
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer>
+    <p>&copy; 2025 JoyZone</p>
+  </footer>
+</body>
+</html>

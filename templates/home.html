@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+{% block content %}
+<div class="hero">
+  <div class="hero-text">
+    <h1>Welcome to <span class="brand">JoyZone</span> 🎉</h1>
+    <p>Fun learning quizzes and activities for kids.</p>
+    <div class="cta-buttons">
+      {% if user.is_authenticated %}
+        <a href="{% url 'quiz_list' %}" class="btn">Start a Quiz 🚀</a>
+        <a href="{% url 'dashboard' %}" class="btn-secondary">Go to Dashboard 📊</a>
+      {% else %}
+        <a href="{% url 'register' %}" class="btn">Get Started ✨</a>
+        <a href="{% url 'login' %}" class="btn-secondary">Login 🔑</a>
+      {% endif %}
+    </div>
+  </div>
+  <div class="hero-image">
+    <img src="{% static 'images/kids-learning.png' %}" alt="Kids Learning">
+  </div>
+</div>
+
+<section class="features">
+  <h2>Why Choose JoyZone?</h2>
+  <div class="features-grid">
+    <div class="feature-card">
+      <img src="{% static 'images/quiz.png' %}" alt="Quizzes">
+      <h3>Interactive Quizzes</h3>
+      <p>Engaging quizzes designed for kids of three different types of age groups.</p>
+    </div>
+    <div class="feature-card">
+      <img src="{% static 'images/fun.png' %}" alt="Fun Learning">
+      <h3>Fun Learning</h3>
+      <p>Learn while having fun with colorful and exciting Quizzes.</p>
+    </div>
+    <div class="feature-card">
+      <img src="{% static 'images/progress.png' %}" alt="Progress Tracking">
+      <h3>Track Progress</h3>
+      <p>Kids can see their progress and improve step by step.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <h2>Ready to Start Learning? 🎓</h2>
+  <p>Join JoyZone today and explore a world full of knowledge!</p>
+  <a href="{% url 'register' %}" class="btn">Join Now</a>
+</section>
+{% endblock %}
