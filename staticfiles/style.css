@@ -1,0 +1,416 @@
+/* =========================
+   Global Styles
+   ========================= */
+body {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fef9f6; /* soft peach background */
+    color: #333;
+}
+
+/* =========================
+   Header & Navbar
+   ========================= */
+header {
+    background-color: #3b82f6; /* sky blue */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-bottom: 5px solid #FFD166; /* sunshine yellow */
+}
+
+header h2 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav a {
+    margin: 0 12px;
+    text-decoration: none;
+    color: #efeeeb; /* white-ish */
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #facc15; /* yellow hover */
+}
+
+/* Logout button styled like nav */
+nav .logout-form {
+    display: inline;
+}
+
+nav .logout-link {
+    background: none;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 0 15px;
+    font-family: inherit;
+    text-decoration: none;
+}
+
+nav .logout-link:hover {
+    text-decoration: underline;
+}
+
+/* =========================
+   Main Content & Titles
+   ========================= */
+main {
+    padding: 40px;
+    text-align: center;
+    background: #E0FBFC; /* pastel blue */
+    min-height: 70vh;
+}
+
+main h1, main h2 {
+    color: #1e3a8a; /* dark blue */
+}
+
+/* =========================
+   Buttons
+   ========================= */
+button, .btn {
+    background-color: #06D6A0; /* mint green */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover, .btn:hover {
+    background-color: #118AB2; /* teal */
+}
+
+/* Special Buttons */
+.btn-start, .submit-btn {
+    background: #4CAF50; /* green */
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 10px 20px;
+    transition: background 0.3s ease;
+}
+
+.btn-start:hover, .submit-btn:hover {
+    background: #45a049;
+}
+
+/* =========================
+   Footer
+   ========================= */
+footer {
+    background-color: #6C63FF; /* playful violet */
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+    border-top: 5px solid #FFD166;
+}
+
+/* =========================
+   Card Styles
+   ========================= */
+.card {
+    background: white;
+    padding: 20px;
+    margin: 15px;
+    border-radius: 12px;
+    display: inline-block;
+    width: 220px;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 10px rgba(0,0,0,0.2);
+}
+
+/* =========================
+   Dashboard
+   ========================= */
+.activities {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.activities .card {
+    background: #fff7e6;
+    border: 2px solid #ffcc66;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px;
+    width: 200px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.activities .card a {
+    color: #333;
+    text-decoration: none;
+}
+
+.activities .card:hover {
+    transform: scale(1.1);
+    background: #fff2cc;
+}
+
+.activities .card .icon {
+    font-size: 40px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Dashboard Table */
+.dashboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.dashboard-table:hover {
+    transform: scale(1.01);
+}
+
+.dashboard-table th {
+    background: linear-gradient(45deg, #24b7a8, #3aa7ab);
+    color: white;
+    padding: 12px 15px;
+    font-size: 16px;
+}
+
+.dashboard-table td {
+    padding: 12px 15px;
+    text-align: center;
+}
+
+.dashboard-table tr:nth-child(even) { background: #f9f9f9; }
+.dashboard-table tr:nth-child(odd) { background: #fff; }
+
+.dashboard-table tr:hover { background: #eafaea; }
+
+/* Percentage Coloring */
+.dashboard-table td.percent {
+    font-weight: bold;
+    border-radius: 6px;
+    padding: 6px 10px;
+}
+
+.dashboard-table td.percent.good { color: #2e7d32; background: #c8e6c9; }
+.dashboard-table td.percent.medium { color: #e65100; background: #ffe0b2; }
+.dashboard-table td.percent.bad { color: #b71c1c; background: #ffcdd2; }
+
+/* =========================
+   Quiz Styles
+   ========================= */
+.quiz-container {
+    max-width: 800px;
+    margin: 40px auto;
+    text-align: left;
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.quiz-title {
+    font-size: 26px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.question-block {
+    margin-bottom: 25px;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.question-text {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.options label {
+    display: block;
+    margin: 6px 0;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.options input { margin-right: 8px; }
+
+.options label:hover {
+    background: #f0f8ff;
+    border-radius: 6px;
+    padding: 4px;
+}
+
+/* =========================
+   Login Styles
+   ========================= */
+.admin-login-container, 
+.kid-login-container {
+    width: 350px;
+    margin: 50px auto;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+/* Admin */
+.admin-login-container {
+    background: #1a1a1a;
+    color: #fff;
+    border: 2px solid #ff4d4d;
+}
+.admin-login-container h2 { color: #ff4d4d; }
+.admin-login-container button {
+    background: #ff4d4d;
+    border-radius: 8px;
+}
+.admin-login-container button:hover { background: #e60000; }
+
+/* Kid */
+.kid-login-container {
+    background: #f0f9ff;
+    border: 2px solid #3399ff;
+}
+.kid-login-container h2 { color: #3399ff; }
+.kid-login-container button {
+    background: #3399ff;
+    border-radius: 8px;
+}
+.kid-login-container button:hover { background: #0066cc; }
+
+/* =========================
+   Hero Section
+   ========================= */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px;
+    background: linear-gradient(135deg, #f6d365, #fda085); /* fun orange gradient */
+    color: white;
+    border-radius: 15px;
+    margin-bottom: 40px;
+}
+
+.hero-text { max-width: 50%; }
+.hero-text h1 { font-size: 3rem; margin-bottom: 10px; }
+.hero-text .brand { color: #3b5fff; }
+.hero-text p { font-size: 1.3rem; margin-bottom: 20px; }
+
+.cta-buttons .btn { background: #ff9800; }
+.cta-buttons .btn:hover { background: #e68900; }
+.cta-buttons .btn-secondary {
+    background: #ffffff;
+    color: #2193b0;
+}
+.cta-buttons .btn-secondary:hover { background: #f0f0f0; }
+
+.hero-image img {
+    max-width: 400px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* =========================
+   Features Section
+   ========================= */
+.features { text-align: center; margin: 60px 0; }
+.features-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+.feature-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    width: 280px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+}
+.feature-card:hover { transform: translateY(-5px); }
+.feature-card img { width: 60px; margin-bottom: 15px; }
+
+/* =========================
+   CTA Section
+   ========================= */
+.cta-section {
+    background: #5fd5f3;
+    color: #1e3a8a(26, 0, 226);
+    text-align: center;
+    padding: 50px;
+    border-radius: 15px;
+    margin-top: 60px;
+}
+.cta-section .btn {
+    background: #ffeb3b;
+    color: #333;
+    margin-top: 20px;
+}
+
+/* =========================
+   Quiz Results
+   ========================= */
+.result-container {
+    background: #ffffff;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    text-align: center;
+    max-width: 500px;
+    margin: 40px auto;
+}
+
+.result-container h2 {
+    font-size: 28px;
+    margin-bottom: 16px;
+    color: #333;
+}
+
+.result-success { color: #16a34a; }
+.result-good { color: #2563eb; }
+.result-fail { color: #dc2626; }
+
+.result-btn {
+    background: #3b82f6;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 20px;
+    display: inline-block;
+    transition: background 0.3s ease;
+}
+.result-btn:hover { background: #2563eb; }
